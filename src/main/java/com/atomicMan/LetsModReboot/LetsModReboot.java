@@ -1,16 +1,22 @@
 package com.atomicMan.LetsModReboot;
 
+import com.atomicMan.LetsModReboot.proxy.IProxy;
+import com.atomicMan.LetsModReboot.reference.Reference;
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid= "LetsModReboot", name = "Lets Mod Reboot", version = "1.7.2-1.1")
+@Mod(modid= Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
 
 public class LetsModReboot
 {
-    @Mod.Instance("LetsModReboot")
+    @Mod.Instance(Reference.MOD_ID)
     public static  LetsModReboot instance;
+
+    @SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS )
+    public static IProxy proxy;
 
     @Mod.EventHandler//Pre-Initialization
     public void preInit(FMLPreInitializationEvent event)
