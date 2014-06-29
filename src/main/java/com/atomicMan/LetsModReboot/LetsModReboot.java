@@ -1,5 +1,6 @@
 package com.atomicMan.LetsModReboot;
 
+import com.atomicMan.LetsModReboot.configuration.ConfigurationHandler;
 import com.atomicMan.LetsModReboot.proxy.IProxy;
 import com.atomicMan.LetsModReboot.reference.Reference;
 import cpw.mods.fml.common.Mod;
@@ -7,6 +8,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+
 
 @Mod(modid= Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
 
@@ -21,7 +23,7 @@ public class LetsModReboot
     @Mod.EventHandler//Pre-Initialization
     public void preInit(FMLPreInitializationEvent event)
     {
-
+        ConfigurationHandler.init(event.getSuggestedConfigurationFile());
     }
 
     @Mod.EventHandler//Initialization
